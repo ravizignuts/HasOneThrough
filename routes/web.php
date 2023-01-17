@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\mainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::controller(mainController::class)->group(function(){
+    Route::get('addmechanic','Add_Mechanic');
+    Route::get('addcar/{id}','Add_Car');
+    Route::get('addowner/{id}','Add_Owner');
+    Route::get('getowner/{id}','Get_Owner');
+
+
 });
